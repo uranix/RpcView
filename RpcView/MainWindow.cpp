@@ -667,12 +667,14 @@ void MainWindow_C::SetupMenu()
 
 	if (IsUserAnAdmin()) pActionAllProcessesDetails->setEnabled(false);
 
+#ifndef _DEBUG
 	hUacIcon = LoadIcon(GetModuleHandle(NULL), MAKEINTRESOURCE(ID_UAC_ICON));
 	if (hUacIcon!=NULL)
 	{
 		pActionAllProcessesDetails->setIcon(QtWin::fromHICON(hUacIcon));
 		DestroyIcon(hUacIcon);
 	}
+#endif
 	setMenuBar(pMenuBar);
 }
 
